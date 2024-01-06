@@ -12,12 +12,11 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      unique: true,
+      unique: true, // Ensure uniqueness
       required: true,
-      validate(value) {
-        if (!validator.isEmail(value)) {
-          throw new Error("Error hy bhai email mn");
-        }
+      validate: {
+        validator: validator.isEmail,
+        message: "Invalid email format",
       },
     },
     password: {

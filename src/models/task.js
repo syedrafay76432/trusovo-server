@@ -8,7 +8,7 @@ const taskSchema = new mongoose.Schema(
       required: true,
     },
     amount: { type: String, required: true },
-    date: { type: Date, required: true },
+    date: { type: String, required: true },
     role: { type: String, required: true },
     status: { type: String, required: true },
     owner: {
