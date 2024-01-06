@@ -1,27 +1,26 @@
-const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs')
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
-
-const taskSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
+const taskSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
     },
-    completed: {
-        type: Boolean,
-        required: true,
-        default: false
-
-    },
+    amount: { type: String, required: true },
+    date: { type: String, required: true },
+    role: { type: String, required: true },
+    status: { type: String, required: true },
     owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User' //makes a reference from one field to another model now we can easily fetch user detail from
-    }
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User", //makes a reference from one field to another model now we can easily fetch user detail from
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-}, {
-    timestamps: true
-})
-
-const Task = mongoose.model('Task', taskSchema)
-module.exports = Task
+const Task = mongoose.model("Task", taskSchema);
+module.exports = Task;
