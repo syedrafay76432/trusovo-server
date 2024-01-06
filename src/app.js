@@ -3,10 +3,12 @@ require("./db/mongoose");
 const userRouter = require("./routers/users");
 const taskRouter = require("./routers/tasks");
 const auth = require("./middleware/auth");
+const cors = require('cors')
+
 
 const app = express();
 // const port = 3000;
-
+app.use(cors())
 app.use(express.json()); //automatically parse incomming json data in to object
 app.use(userRouter); //register router
 app.use(taskRouter); //register router
