@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    //something changed here for uniquness of email
     email: {
       type: String,
       unique: true,
