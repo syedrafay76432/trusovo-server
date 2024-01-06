@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    //something changed here for uniquness of email
     email: {
       type: String,
       unique: true,
@@ -25,12 +24,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // age: {
-    //     type: Number,
-    //     // min:[12,"too young"],
-    //     default: 0,
-    //     required: true
-    // },
     tokens: [
       {
         token: {
