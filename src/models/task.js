@@ -11,8 +11,9 @@ const taskSchema = new mongoose.Schema(
     date: { type: Date, required: true },
     role: { type: String, required: true },
     status: { type: String, required: true },
+    email: { type: String, required: true },
     owner: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: "User", //makes a reference from one field to another model now we can easily fetch user detail from
     },
