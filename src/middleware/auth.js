@@ -17,7 +17,7 @@ const auth = async (req, res, next) => {
     req.user = user; //giving access to route handler to user that we fetcher no need to fetch again and wate time
     next();
   } catch (e) {
-    res.status(401).send({ error: "Please authenticate" });
+    res.status(401).send("Please authenticate" );
   }
 };
 
