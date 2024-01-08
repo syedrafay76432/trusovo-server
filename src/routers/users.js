@@ -5,7 +5,7 @@ const auth = require("../middleware/auth");
 const { sendWelcomeEmail } = require("../emails/account");
 const router = new express.Router();
 
-router.post("/users/admin/:email", async (req, res) => {
+router.get("/users/admin/:email", async (req, res) => {
   try {
     // Assuming you have a method like findByCredentials in your User model
     const user = await User.findOne({
