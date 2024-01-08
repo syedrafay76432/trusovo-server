@@ -5,10 +5,20 @@ const auth = require("../middleware/auth");
 const { sendWelcomeEmail } = require("../emails/account");
 const router = new express.Router();
 
-router.get("/users/admin/:email", async (req, res) => {
-  const User = User.findOne({ email: req.params.email });
+router.post("/users/admin/:email", async (req, res) => {
+  try {
+    // Assuming you have a method like findByCredentials in your User model
+    const user = await User.findOne({
+      email: req.params.email,
+    })
+    if (!user) {
+      return res.status(404).send({ error: 'User not found' });
+    }
 
-  res.send(User);
+    res.status(200).send(user.publicKey);
+  } catch (error) {
+    res.status(400).send({ error: 'Invalid credentials' });
+  }
 });
 router.post("/users", async (req, res) => {
   const user = new User(req.body);
