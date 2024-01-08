@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    publicKey: {
+      type: String,
+      required: true,
+    },
     tokens: [
       {
         token: {
