@@ -5,8 +5,10 @@ const auth = require("../middleware/auth");
 const { sendWelcomeEmail } = require("../emails/account");
 const router = new express.Router();
 
-router.get("/users/me", auth, async (req, res) => {
-  res.send(req.user);
+router.get("/users/admin/:email", async (req, res) => {
+  const User = User.findOne({ email: req.params.email });
+
+  res.send(User);
 });
 router.post("/users", async (req, res) => {
   const user = new User(req.body);
